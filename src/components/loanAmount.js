@@ -18,7 +18,7 @@ class LoanAmount extends React.Component {
   }
 
   onSliderAfterChange(value) {
-    console.log(value);
+    //console.log(value);
     this.props.onAmountChange(this.state.loanValue);
   }
 
@@ -28,8 +28,6 @@ class LoanAmount extends React.Component {
 
   onSliderChange(value) {
     this.setState({ loanValue: value });
-
-    //console.log("comp", value);
   }
 
   render() {

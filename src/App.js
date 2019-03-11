@@ -43,7 +43,7 @@ class App extends Component {
     );
     const data = await api_call.json();
     this.setState({
-      intrestRate: data.interestRate,
+      interestRate: data.interestRate,
       monthlyPayment: data.monthlyPayment.amount
     });
     console.log(data);
@@ -55,7 +55,10 @@ class App extends Component {
       <div className="App">
         <LoanAmount onAmountChange={this.handleAmountChange} />
         <LoanDuration onDurationChange={this.handleDurationChange} />
-        <IntrestRate />
+        <IntrestRate
+          interestRate={this.state.interestRate}
+          monthlyPayment={this.state.monthlyPayment}
+        />
       </div>
     );
   }

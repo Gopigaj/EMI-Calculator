@@ -14,15 +14,19 @@ class LoanDuration extends React.Component {
 
     this.onSliderChange = this.onSliderChange.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
+    this.onSliderAfterChange = this.onSliderAfterChange.bind(this);
   }
 
   onSliderChange(value) {
     this.setState({ durationValue: value });
-    this.props.onDurationChange(this.state.durationValue);
   }
 
   onValueChange(e) {
     this.setState({ durationValue: e.target.value });
+  }
+
+  onSliderAfterChange(value) {
+    this.props.onDurationChange(this.state.durationValue);
   }
 
   render() {
@@ -35,6 +39,7 @@ class LoanDuration extends React.Component {
           min={this.state.min}
           max={this.state.max}
           onChange={this.onSliderChange}
+          onAfterChange={this.onSliderAfterChange}
         />
       </div>
     );

@@ -1,11 +1,15 @@
 import React from "react";
 
 class IntrestRate extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div>
-        Intrest Rate: <input />
-        Monthly Payment: <input />
+        <p>Intrest Rate: {this.props.interestRate}</p>
+        <p>Monthly Payment: {this.props.monthlyPayment}</p>
       </div>
     );
   }
