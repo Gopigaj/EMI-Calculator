@@ -32,7 +32,7 @@ class LoanDuration extends React.Component {
   render() {
     return (
       <div>
-        LoanDuration:
+        <label>LoanDuration:</label>
         <input value={this.state.durationValue} onChange={this.onValueChange} />
         <Slider
           defaultValue={6}

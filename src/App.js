@@ -52,7 +52,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="container bg-light mx-auto shadow p-4 mb-4 bg-white m-5 pb-5 App">
         <LoanAmount onAmountChange={this.handleAmountChange} />
         <LoanDuration onDurationChange={this.handleDurationChange} />
         <IntrestRate
