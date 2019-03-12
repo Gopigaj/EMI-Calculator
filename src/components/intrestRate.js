@@ -28,15 +28,22 @@ class IntrestRate extends React.Component {
           data={[
             {
               title: "One",
-              value: this.props.monthlyPayment,
+              value: this.props.totalInterestPercent,
               color: "#E38627"
             },
-            { title: "Two", value: this.props.interestRate, color: "#C13C37" }
+            {
+              title: "Two",
+              value: this.props.totalPrinciplePercent,
+              color: "#C13C37"
+            }
           ]}
+          style={{ padding: 0 }}
           radius={20}
+          //label={true}
+          //reveal={2}
           //ratio={1}
           //lengthAngle={-360}
-          //animate
+          animate
         />
       </div>
     );
