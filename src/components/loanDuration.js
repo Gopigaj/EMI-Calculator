@@ -15,6 +15,16 @@ class LoanDuration extends React.Component {
     this.onSliderChange = this.onSliderChange.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
     this.onSliderAfterChange = this.onSliderAfterChange.bind(this);
+    this.getLoanDuration = this.getLoanDuration.bind(this);
+  }
+  getLoanDuration(e) {
+    let num = parseInt(e.target.value, 10);
+    if (num < 6 || num > 24) {
+      alert("Enter loan duration witin range of 6 to 24 months");
+    } else {
+      this.setState({ durationValue: e.target.value });
+      //console.log(this.state.loanValue);
+    }
   }
 
   onSliderChange(value) {
@@ -38,6 +48,7 @@ class LoanDuration extends React.Component {
             value={this.state.durationValue}
             onChange={this.onValueChange}
             className="col-md-5 form-control shadow mb-5 bg-white rounded"
+            onBlur={this.getLoanDuration}
           />
         </div>
         <div className="mx-auto p-4 col-md-8">
@@ -47,6 +58,7 @@ class LoanDuration extends React.Component {
             max={this.state.max}
             onChange={this.onSliderChange}
             onAfterChange={this.onSliderAfterChange}
+            value={this.state.durationValue}
           />
         </div>
       </div>

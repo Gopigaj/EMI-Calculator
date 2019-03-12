@@ -15,7 +15,8 @@ class App extends Component {
       monthlyPayment: 90,
       totalInterestPercent: 0,
       totalPrinciplePercent: 0,
-      totalInterest: 0
+      totalInterest: 0,
+      totalPayment: 0
     };
 
     this.getInterest(this.state.lAmount, this.state.lDuration);
@@ -44,15 +45,16 @@ class App extends Component {
       interestRate: data.interestRate,
       monthlyPayment: data.monthlyPayment.amount
     });
-    let totalpayment = this.state.monthlyPayment * this.state.lDuration;
-    let totalInterest = totalpayment - this.state.lAmount;
-    let totalInterestP = (totalInterest / totalpayment) * 100;
-    let principleP = (this.state.lAmount / totalpayment) * 100;
+    let totalPayment = this.state.monthlyPayment * this.state.lDuration;
+    let totalInterest = totalPayment - this.state.lAmount;
+    let totalInterestP = (totalInterest / totalPayment) * 100;
+    let principleP = (this.state.lAmount / totalPayment) * 100;
 
     this.setState({
       totalInterestPercent: totalInterestP,
       totalPrinciplePercent: principleP,
-      totalInterest: totalInterest
+      totalInterest: totalInterest,
+      totalPayment: totalPayment
     });
   };
 
@@ -66,6 +68,7 @@ class App extends Component {
           <LoanAmount onAmountChange={this.handleAmountChange} />
           <LoanDuration onDurationChange={this.handleDurationChange} />
           <IntrestRate
+            totalPayment={this.state.totalPayment}
             loanAmount={this.state.lAmount}
             totalInterest={this.state.totalInterest}
             interestRate={this.state.interestRate}

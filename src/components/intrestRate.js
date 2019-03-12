@@ -22,7 +22,7 @@ class IntrestRate extends React.Component {
           </p>
 
           <p className=" col-md-4 mx-auto bg-light font-weight-bold">
-            Total Interest: {this.props.totalInterest}
+            Total Payment: {this.props.totalPayment}
           </p>
         </div>
         <ReactMinimalPieChart

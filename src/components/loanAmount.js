@@ -15,10 +15,20 @@ class LoanAmount extends React.Component {
     this.onSliderChange = this.onSliderChange.bind(this);
     this.onValueChange = this.onValueChange.bind(this);
     this.onSliderAfterChange = this.onSliderAfterChange.bind(this);
+    this.getlAmount = this.getlAmount.bind(this);
+  }
+
+  getlAmount(e) {
+    let num = parseInt(e.target.value, 10);
+    if (num < 500 || num > 5000) {
+      alert("Enter loan amount witin range of $500 to $5000");
+    } else {
+      this.setState({ loanValue: e.target.value });
+      console.log(this.state.loanValue);
+    }
   }
 
   onSliderAfterChange(value) {
-    //console.log(value);
     this.props.onAmountChange(this.state.loanValue);
   }
 
@@ -36,6 +46,7 @@ class LoanAmount extends React.Component {
         <div className="row mx-auto">
           <label className="col-md-4 col-form-label">Loan Amount:</label>
           <input
+            onBlur={this.getlAmount}
             value={this.state.loanValue}
             onChange={this.onValueChange}
             className="col-md-5 form-control shadow mb-5 bg-white rounded"
@@ -48,6 +59,7 @@ class LoanAmount extends React.Component {
             max={this.state.max}
             onChange={this.onSliderChange}
             onAfterChange={this.onSliderAfterChange}
+            value={this.state.loanValue}
           />
         </div>
       </div>
