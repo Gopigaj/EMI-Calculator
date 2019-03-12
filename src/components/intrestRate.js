@@ -1,5 +1,5 @@
 import React from "react";
-import PieChart from "react-minimal-pie-chart";
+import ReactMinimalPieChart from "react-minimal-pie-chart";
 
 class IntrestRate extends React.Component {
   constructor(props) {
@@ -8,42 +8,34 @@ class IntrestRate extends React.Component {
       monthlyPayment: 0,
       interestRate: 0
     };
-
-    //this.handleChange = this.handleChange.bind(this);
   }
 
-  /*componentDidUpdate() {
-    this.setState({
-      monthlyPayment: this.props.monthlyPayment,
-      interestRate: this.props.interestRate
-    });
-    console.log("handle change called");
-  }*/
   render() {
     return (
       <div>
-        <p>Intrest Rate: {this.props.interestRate}</p>
-        <p>Monthly Payment: {this.props.monthlyPayment}</p>
-        <PieChart
+        <div className="row mx-auto">
+          <p className="col-md-5">Intrest Rate: {this.props.interestRate}</p>
+          <p className="col-md-4">
+            Monthly Payment: {this.props.monthlyPayment}
+          </p>
+        </div>
+        <ReactMinimalPieChart
           data={[
             {
-              title: "One",
+              title: "principle paid: " + this.props.totalInterest,
               value: this.props.totalInterestPercent,
-              color: "#E38627"
+              color: "#8df48d"
             },
             {
-              title: "Two",
+              title: "Interest paid: " + this.props.loanAmount,
               value: this.props.totalPrinciplePercent,
-              color: "#C13C37"
+              color: "#abe2fb"
             }
           ]}
-          style={{ padding: 0 }}
-          radius={20}
-          //label={true}
-          //reveal={2}
-          //ratio={1}
-          //lengthAngle={-360}
-          animate
+          startAngle={180}
+          lengthAngle={180}
+          //animate
+          style={{ height: "300px" }}
         />
       </div>
     );

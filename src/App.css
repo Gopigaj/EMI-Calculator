@@ -23,11 +23,15 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container1 {
+  background-color: #abe2fb;
+  height: 12%;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  padding-top: 1%;
+  padding-left: 16%;
+  color: white;
+  border-radius: 25px;
 }

@@ -31,16 +31,24 @@ class LoanDuration extends React.Component {
 
   render() {
     return (
-      <div>
-        <label>LoanDuration:</label>
-        <input value={this.state.durationValue} onChange={this.onValueChange} />
-        <Slider
-          defaultValue={6}
-          min={this.state.min}
-          max={this.state.max}
-          onChange={this.onSliderChange}
-          onAfterChange={this.onSliderAfterChange}
-        />
+      <div className=" container">
+        <div className="row mx-auto">
+          <label className="col-md-4 col-form-label "> Loan Duration:</label>
+          <input
+            value={this.state.durationValue}
+            onChange={this.onValueChange}
+            className="col-md-5 form-control shadow mb-5 bg-white rounded"
+          />
+        </div>
+        <div className="mx-auto p-4 col-md-8">
+          <Slider
+            defaultValue={6}
+            min={this.state.min}
+            max={this.state.max}
+            onChange={this.onSliderChange}
+            onAfterChange={this.onSliderAfterChange}
+          />
+        </div>
       </div>
     );
   }

@@ -14,23 +14,23 @@ class App extends Component {
       interestRate: 6,
       monthlyPayment: 90,
       totalInterestPercent: 0,
-      totalPrinciplePercent: 0
+      totalPrinciplePercent: 0,
+      totalInterest: 0
     };
+
+    this.getInterest(this.state.lAmount, this.state.lDuration);
     this.handleAmountChange = this.handleAmountChange.bind(this);
     this.handleDurationChange = this.handleDurationChange.bind(this);
   }
 
   handleAmountChange(amount) {
-    // console.log("mn", amount);
     this.setState({ lAmount: amount }, () => {
       console.log(this.state.lAmount);
       this.getInterest(this.state.lAmount, this.state.lDuration);
     });
-    //console.log(this.state.lAmount);
   }
 
   handleDurationChange(duration) {
-    //console.log(duration);
     this.setState({ lDuration: duration }, () => {
       console.log(this.state.lDuration);
       this.getInterest(this.state.lAmount, this.state.lDuration);
@@ -38,8 +38,6 @@ class App extends Component {
   }
 
   getInterest = async (lAmount, lDuration) => {
-    // e.preventDefault();
-
     const api_call = await fetch(
       `https://ftl-frontend-test.herokuapp.com/interest?amount=${lAmount}&numMonths=${lDuration}`
     );
@@ -49,43 +47,35 @@ class App extends Component {
       monthlyPayment: data.monthlyPayment.amount
     });
     let totalpayment = this.state.monthlyPayment * this.state.lDuration;
-
     let totalInterest = totalpayment - this.state.lAmount;
-
     let totalInterestP = (totalInterest / totalpayment) * 100;
-
     let principleP = (this.state.lAmount / totalpayment) * 100;
 
     this.setState({
       totalInterestPercent: totalInterestP,
-      totalPrinciplePercent: principleP
+      totalPrinciplePercent: principleP,
+      totalInterest: totalInterest
     });
-
-    console.log("Total Payment", totalpayment);
-    console.log("pp", principleP);
-    console.log("TIP", totalInterestP);
-    console.log("TI", totalInterest);
-    console.log(data);
-    console.log(this.state.interestRate, this.state.monthlyPayment);
-    console.log(
-      "sPP",
-      this.state.totalInterestPercent,
-      "ipp",
-      this.state.totalPrinciplePercent
-    );
   };
 
   render() {
     return (
-      <div className="container bg-light mx-auto shadow p-4 mb-4 bg-white m-5 pb-5 App">
-        <LoanAmount onAmountChange={this.handleAmountChange} />
-        <LoanDuration onDurationChange={this.handleDurationChange} />
-        <IntrestRate
-          interestRate={this.state.interestRate}
-          monthlyPayment={this.state.monthlyPayment}
-          totalInterestPercent={this.state.totalInterestPercent}
-          totalPrinciplePercent={this.state.totalPrinciplePercent}
-        />
+      <div className="jumbotron p-1">
+        <div className="container1 ">
+          <h1>EMI Calculator</h1>
+        </div>
+        <div className="container mx-auto shadow p-3 mb-4 bg-white m-5 pb-5 App">
+          <LoanAmount onAmountChange={this.handleAmountChange} />
+          <LoanDuration onDurationChange={this.handleDurationChange} />
+          <IntrestRate
+            loanAmount={this.state.lAmount}
+            totalInterest={this.state.totalInterest}
+            interestRate={this.state.interestRate}
+            monthlyPayment={this.state.monthlyPayment}
+            totalInterestPercent={this.state.totalInterestPercent}
+            totalPrinciplePercent={this.state.totalPrinciplePercent}
+          />
+        </div>
       </div>
     );
   }

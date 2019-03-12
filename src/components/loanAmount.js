@@ -32,10 +32,16 @@ class LoanAmount extends React.Component {
 
   render() {
     return (
-      <div>
-        <label>LoanAmount:</label>
-        <input value={this.state.loanValue} onChange={this.onValueChange} />
-        <div className="p-5 col-md-8">
+      <div className="p-5">
+        <div className="row mx-auto">
+          <label className="col-md-4 col-form-label">Loan Amount:</label>
+          <input
+            value={this.state.loanValue}
+            onChange={this.onValueChange}
+            className="col-md-5 form-control shadow mb-5 bg-white rounded"
+          />
+        </div>
+        <div className="mx-auto p-4 col-md-8 ">
           <Slider
             defaultValue={500}
             min={this.state.min}
