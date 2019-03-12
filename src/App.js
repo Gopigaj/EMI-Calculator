@@ -25,14 +25,12 @@ class App extends Component {
 
   handleAmountChange(amount) {
     this.setState({ lAmount: amount }, () => {
-      console.log(this.state.lAmount);
       this.getInterest(this.state.lAmount, this.state.lDuration);
     });
   }
 
   handleDurationChange(duration) {
     this.setState({ lDuration: duration }, () => {
-      console.log(this.state.lDuration);
       this.getInterest(this.state.lAmount, this.state.lDuration);
     });
   }
@@ -61,8 +59,8 @@ class App extends Component {
   render() {
     return (
       <div className="jumbotron p-1">
-        <div className="container1 ">
-          <h1>EMI Calculator</h1>
+        <div className="container1 row">
+          <h1 className="col-sx-8">EMI Calculator</h1>
         </div>
         <div className="container mx-auto shadow p-3 mb-4 bg-white m-5 pb-5 App">
           <LoanAmount onAmountChange={this.handleAmountChange} />

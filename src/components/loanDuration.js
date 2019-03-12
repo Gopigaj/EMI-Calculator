@@ -31,9 +31,9 @@ class LoanDuration extends React.Component {
 
   render() {
     return (
-      <div className=" container">
+      <div className="p-4">
         <div className="row mx-auto">
-          <label className="col-md-4 col-form-label "> Loan Duration:</label>
+          <label className="col-md-4 col-form-label ">Loan Duration:</label>
           <input
             value={this.state.durationValue}
             onChange={this.onValueChange}

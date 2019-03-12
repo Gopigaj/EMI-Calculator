@@ -14,20 +14,26 @@ class IntrestRate extends React.Component {
     return (
       <div>
         <div className="row mx-auto">
-          <p className="col-md-5">Intrest Rate: {this.props.interestRate}</p>
-          <p className="col-md-4">
-            Monthly Payment: {this.props.monthlyPayment}
+          <p className=" col-md-3 mx-auto bg-light font-weight-bold">
+            Intrest Rate: {this.props.interestRate}
+          </p>
+          <p className=" col-md-4 mx-auto bg-light font-weight-bold">
+            EMI: {this.props.monthlyPayment}
+          </p>
+
+          <p className=" col-md-4 mx-auto bg-light font-weight-bold">
+            Total Interest: {this.props.totalInterest}
           </p>
         </div>
         <ReactMinimalPieChart
           data={[
             {
-              title: "principle paid: " + this.props.totalInterest,
+              title: "Total Interest: " + this.props.totalInterest,
               value: this.props.totalInterestPercent,
               color: "#8df48d"
             },
             {
-              title: "Interest paid: " + this.props.loanAmount,
+              title: "Principle Amount: " + this.props.loanAmount,
               value: this.props.totalPrinciplePercent,
               color: "#abe2fb"
             }

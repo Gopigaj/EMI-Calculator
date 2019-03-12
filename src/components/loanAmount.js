@@ -32,7 +32,7 @@ class LoanAmount extends React.Component {
 
   render() {
     return (
-      <div className="p-5">
+      <div className="p-4">
         <div className="row mx-auto">
           <label className="col-md-4 col-form-label">Loan Amount:</label>
           <input
