@@ -16,9 +16,9 @@ $ npm run start
 
 ### Build with
 
-API :https://ftl-frontend-test.herokuapp.com/interest?amount=<amount>&numMonths=<numMonths>
-Slider :https://github.com/react-component/slider
-chart :https://github.com/toomuchdesign/react-minimal-pie-chart
+- API :https://ftl-frontend-test.herokuapp.com/interest?amount=<amount>&numMonths=<numMonths>
+- Slider :https://github.com/react-component/slider
+- chart :https://github.com/toomuchdesign/react-minimal-pie-chart
 
 
 
