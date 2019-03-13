@@ -2,6 +2,8 @@ import React from "react";
 import "rc-slider/assets/index.css";
 import Slider, { Range } from "rc-slider";
 
+const marks = { "6": "6 Months", "24": <label>24 Months</label> };
+
 class LoanDuration extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,6 @@ class LoanDuration extends React.Component {
       alert("Enter loan duration witin range of 6 to 24 months");
     } else {
       this.setState({ durationValue: e.target.value });
-      //console.log(this.state.loanValue);
     }
   }
 
@@ -56,6 +57,7 @@ class LoanDuration extends React.Component {
             defaultValue={6}
             min={this.state.min}
             max={this.state.max}
+            marks={marks}
             onChange={this.onSliderChange}
             onAfterChange={this.onSliderAfterChange}
             value={this.state.durationValue}

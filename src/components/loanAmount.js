@@ -2,6 +2,8 @@ import React from "react";
 import "rc-slider/assets/index.css";
 import Slider from "rc-slider/lib/Slider";
 
+const marks = { "500": "$500", "5000": "$5000" };
+
 class LoanAmount extends React.Component {
   constructor(props) {
     super(props);
@@ -57,6 +59,7 @@ class LoanAmount extends React.Component {
             defaultValue={500}
             min={this.state.min}
             max={this.state.max}
+            marks={marks}
             onChange={this.onSliderChange}
             onAfterChange={this.onSliderAfterChange}
             value={this.state.loanValue}

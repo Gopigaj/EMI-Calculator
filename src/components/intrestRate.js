@@ -40,6 +40,7 @@ class IntrestRate extends React.Component {
           ]}
           startAngle={180}
           lengthAngle={180}
+          tooltipVisible={true}
           //animate
           style={{ height: "300px" }}
         />
