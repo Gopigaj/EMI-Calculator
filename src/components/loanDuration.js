@@ -25,6 +25,7 @@ class LoanDuration extends React.Component {
       alert("Enter loan duration witin range of 6 to 24 months");
     } else {
       this.setState({ durationValue: e.target.value });
+      this.onSliderAfterChange(this.state.durationValue);
     }
   }
 

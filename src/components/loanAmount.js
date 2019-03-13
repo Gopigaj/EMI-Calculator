@@ -26,7 +26,7 @@ class LoanAmount extends React.Component {
       alert("Enter loan amount witin range of $500 to $5000");
     } else {
       this.setState({ loanValue: e.target.value });
-      console.log(this.state.loanValue);
+      this.onSliderAfterChange(this.state.loanValue);
     }
   }
 
@@ -35,6 +35,7 @@ class LoanAmount extends React.Component {
   }
 
   onValueChange(e) {
+    e.preventDefault();
     this.setState({ loanValue: e.target.value });
   }
 
