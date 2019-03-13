@@ -15,7 +15,7 @@ class IntrestRate extends React.Component {
       <div>
         <div className="row mx-auto">
           <p className=" col-md-3 mx-auto bg-light font-weight-bold">
-            Intrest Rate: {this.props.interestRate}
+            Interest Rate: {this.props.interestRate}
           </p>
           <p className=" col-md-4 mx-auto bg-light font-weight-bold">
             EMI: {this.props.monthlyPayment}
@@ -40,8 +40,6 @@ class IntrestRate extends React.Component {
           ]}
           startAngle={180}
           lengthAngle={180}
-          tooltipVisible={true}
-          //animate
           style={{ height: "300px" }}
         />
       </div>

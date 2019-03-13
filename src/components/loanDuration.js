@@ -45,7 +45,9 @@ class LoanDuration extends React.Component {
     return (
       <div className="p-4">
         <div className="row mx-auto">
-          <label className="col-md-4 col-form-label ">Loan Duration:</label>
+          <label className="col-md-4 col-form-label font-weight-bold ">
+            Loan Duration:
+          </label>
           <input
             value={this.state.durationValue}
             onChange={this.onValueChange}

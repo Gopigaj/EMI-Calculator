@@ -47,7 +47,9 @@ class LoanAmount extends React.Component {
     return (
       <div className="p-4">
         <div className="row mx-auto">
-          <label className="col-md-4 col-form-label">Loan Amount:</label>
+          <label className="col-md-4 col-form-label font-weight-bold">
+            Loan Amount:
+          </label>
           <input
             onBlur={this.getlAmount}
             value={this.state.loanValue}

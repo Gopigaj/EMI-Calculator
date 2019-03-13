@@ -45,6 +45,7 @@ class App extends Component {
       interestRate: data.interestRate,
       monthlyPayment: data.monthlyPayment.amount
     });
+
     let totalPayment = this.state.monthlyPayment * this.state.lDuration;
     let totalInterest = totalPayment - this.state.lAmount;
     let totalInterestP = (totalInterest / totalPayment) * 100;
